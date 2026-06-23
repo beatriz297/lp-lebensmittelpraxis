@@ -164,8 +164,12 @@
     .form-card {
       background: var(--card-bg);
       border-radius: 14px;
-      padding: 24px 20px 16px;
+      padding: 16px 12px 12px;
       box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+    }
+
+    @media (min-width: 600px) {
+      .form-card { padding: 24px 20px 16px; }
     }
 
     /* EDITÁVEL: título do formulário */
@@ -549,14 +553,18 @@
     /* EDITÁVEL: botão do CTA final */
     .btn-cta-lg {
       display: inline-block;
-      padding: 18px 40px;
+      padding: 14px 28px;
       background-color: var(--lime);
       color: var(--dark-green);
       font-family: var(--font-heading);
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 700;
       border-radius: 999px;
       transition: background-color 0.2s, transform 0.1s;
+    }
+
+    @media (min-width: 600px) {
+      .btn-cta-lg { padding: 18px 40px; font-size: 18px; }
     }
 
     .btn-cta-lg:hover { background-color: #b5c728; }
