@@ -47,7 +47,7 @@
        ============================================================ */
     .section-confirm {
       background: var(--dark-green);
-      padding: 48px 40px 56px;
+      padding: 48px 40px 56px 80px;
     }
 
     .confirm-check {
@@ -104,7 +104,7 @@
        ============================================================ */
     .section-demo {
       background: var(--cream);
-      padding: 56px 40px 48px;
+      padding: 56px 40px 48px 80px;
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
@@ -112,7 +112,7 @@
 
     @media (min-width: 760px) {
       .section-demo {
-        grid-template-columns: 340px 1fr;
+        grid-template-columns: 320px 560px;
         gap: 56px;
         align-items: start;
       }
@@ -176,12 +176,10 @@
       flex-direction: column;
     }
 
-    /* EDITÁVEL: widget Calendly — altura fixa para não cortar */
+    /* EDITÁVEL: widget Calendly */
     .calendly-inline-widget {
       width: 100%;
-      min-height: 700px;
-      border-radius: 12px;
-      overflow: hidden;
+      height: 700px;
     }
 
     /* EDITÁVEL: fallback email */
