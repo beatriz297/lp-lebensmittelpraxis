@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vielen Dank – Freshflow</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — mesmos da página 1
+       ============================================================ */
+    :root {
+      --dark-green: #2D4739;
+      --lime: #C5D82D;
+      --off-white: #F7FAF5;
+      --cream: #FBFAF6;
+      --cream-2: #F2EBD6;
+      --text-dark: #1A2B22;
+      --text-muted: #6B7E74;
+      --border-cream: rgba(24,24,27,0.10);
+      --font-heading: 'Montserrat', Arial, sans-serif;
+      --font-body: 'Inter', Arial, sans-serif;
+      --max-w: 860px;
+      --section-py: 80px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--cream);
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+       NAVBAR — logo verde, fundo branco, sem menu
+       ============================================================ */
+    .topbar {
+      background-color: #fff;
+      border-bottom: 1px solid var(--border-cream);
+      padding: 18px 24px;
+    }
+
+    .topbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* EDITÁVEL: substituir src pelo caminho do logo verde */
+    .topbar-logo {
+      height: 34px;
+      width: auto;
+    }
+
+    /* ============================================================
+       SEÇÃO 1 — CONFIRMAÇÃO (dark green)
+       ============================================================ */
+    .section-confirm {
+      background-color: var(--dark-green);
+      color: #fff;
+      padding: 72px 0 80px;
+      text-align: center;
+    }
+
+    /* EDITÁVEL: logo branco no topo da confirmação */
+    .confirm-logo {
+      height: 28px;
+      width: auto;
+      margin: 0 auto 40px;
+      opacity: 0.75;
+    }
+
+    /* EDITÁVEL: título principal em lime */
+    .confirm-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--lime);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .confirm-subtitle {
+      font-size: clamp(15px, 2vw, 17px);
+      color: #C8DCC8;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 36px;
+    }
+
+    /* EDITÁVEL: botão CTA lime */
+    .btn-report {
+      display: inline-block;
+      padding: 16px 36px;
+      background-color: var(--lime);
+      color: var(--dark-green);
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 999px;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-report:hover { background-color: #b5c728; }
+    .btn-report:active { transform: scale(0.98); }
+
+    /* Wave divider — cream fill, seamless transition */
+    .confirm-wave {
+      display: block;
+      width: 100%;
+      margin-bottom: -2px;
+    }
+
+    /* ============================================================
+       SEÇÃO 2 — PITCH DA DEMO (fundo branco)
+       ============================================================ */
+    .section-pitch {
+      background-color: #fff;
+      padding: var(--section-py) 0 64px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-cream);
+    }
+
+    .pitch-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 800;
+      color: var(--dark-green);
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .pitch-text {
+      font-size: clamp(14px, 1.8vw, 16px);
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 640px;
+      margin: 0 auto 36px;
+    }
+
+    /* KPI bar compacta — inline pills */
+    .kpi-inline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px 24px;
+    }
+
+    .kpi-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(197,216,45,0.12);
+      border: 1px solid rgba(197,216,45,0.30);
+      border-radius: 999px;
+      padding: 8px 20px;
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+
+    .kpi-pill-num {
+      color: var(--dark-green);
+      font-size: 16px;
+    }
+
+    /* ============================================================
+       SEÇÃO 3 — CALENDLY EMBED (off-white)
+       ============================================================ */
+    .section-calendly {
+      background-color: var(--off-white);
+      padding: var(--section-py) 0;
+    }
+
+    .calendly-h3 {
+      font-family: var(--font-heading);
+      font-size: clamp(17px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--dark-green);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    /* EDITÁVEL: wrapper do widget Calendly */
+    .calendly-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(24,24,27,0.07);
+      background: #fff;
+    }
+
+    .calendly-fallback {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* EDITÁVEL: link de email fallback */
+    .calendly-fallback a {
+      color: var(--dark-green);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ============================================================
+       FOOTER — igual à página 1
+       ============================================================ */
+    .footer {
+      background-color: var(--dark-green);
+      color: #A4BCA4;
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+
+    /* EDITÁVEL: logo branco no footer */
+    .footer-logo {
+      height: 32px;
+      width: auto;
+      margin: 0 auto 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 20px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      color: #A4BCA4;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--lime); }
+
+    /* EDITÁVEL: texto de copyright */
+    .footer-copy {
+      font-size: 12px;
+      color: #6B7E74;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVBAR — logo verde, sem menu
+       ============================================================ -->
+  <header class="topbar">
+    <div class="container">
+      <!-- EDITÁVEL: caminho do logo verde -->
+      <img
+        class="topbar-logo"
+        src="assets/freshflow_logo.png"
+        alt="Freshflow"
+      />
+    </div>
+  </header>
+
+  <!-- ============================================================
+       SEÇÃO 1 — CONFIRMAÇÃO
+       ============================================================ -->
+  <section class="section-confirm">
+    <div class="container">
+
+      <!-- EDITÁVEL: logo branco — mesma imagem do nav da página 1 -->
+      <img
+        class="confirm-logo"
+        src="assets/freshflow_logo-white.png"
+        alt="Freshflow"
+      />
+
+      <!-- EDITÁVEL: título em lime -->
+      <h1 class="confirm-h1">Vielen Dank!<br>Ihr Zugang zum Bericht ist bereit.</h1>
+
+      <!-- EDITÁVEL: subtítulo -->
+      <p class="confirm-subtitle">
+        Wir haben Ihnen den Zugang zur Analyse der Lebensmittel Praxis per E-Mail geschickt.
+        Sie können den Bericht auch direkt hier abrufen:
+      </p>
+
+      <!-- EDITÁVEL: URL do artigo da LP -->
+      <a
+        class="btn-report"
+        href="https://lebensmittelpraxis.de/sortiment/48550-obst-und-gemuese-zeitfresser-disposition-wie-ki-den-bestellprozess-verkuerzt-und-abschriften-um-30-prozent-senkt.html"
+        target="_blank"
+        rel="noopener"
+      >
+        Bericht jetzt lesen →
+      </a>
+
+    </div>
+
+    <!-- Wave — fill = #fff (branco, mesma cor da seção seguinte) -->
+    <svg class="confirm-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#ffffff"/>
+    </svg>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 2 — PITCH DA DEMO
+       ============================================================ -->
+  <section class="section-pitch">
+    <div class="container">
+
+      <!-- EDITÁVEL: título -->
+      <h2 class="pitch-h2">Möchten Sie sehen, wie diese Ergebnisse<br>in Ihrem Markt aussehen?</h2>
+
+      <!-- EDITÁVEL: texto -->
+      <p class="pitch-text">
+        Der Bericht zeigt, was möglich ist. In einer 30-minütigen Demo zeigen wir Ihnen,
+        wie unsere KI speziell für Ihre PLU-Codes, Ihre Lieferanten und Ihr lokales Wetter
+        die optimale Bestellung erstellt.
+      </p>
+
+      <!-- EDITÁVEL: KPI bar inline -->
+      <div class="kpi-inline">
+        <span class="kpi-pill"><span class="kpi-pill-num">−30%</span> Abschriften</span>
+        <span class="kpi-pill"><span class="kpi-pill-num">+3%</span> Umsatz</span>
+        <span class="kpi-pill"><span class="kpi-pill-num">93%</span> Akzeptanzrate</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SEÇÃO 3 — CALENDLY EMBED
+       ============================================================ -->
+  <section class="section-calendly">
+    <div class="container">
+
+      <!-- EDITÁVEL: título da seção -->
+      <h3 class="calendly-h3">Termin direkt buchen:</h3>
+
+      <!-- EDITÁVEL: widget Calendly — substituir data-url se o link mudar -->
+      <div class="calendly-wrap">
+        <div
+          class="calendly-inline-widget"
+          data-url="https://get.freshflow.ai/meetings/andrey-gromov/product-demo-de"
+          style="min-width:320px;height:700px;"
+        ></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
+
+      <!-- Fallback -->
+      <p class="calendly-fallback">
+        Lieber per E-Mail? Schreib uns:
+        <!-- EDITÁVEL: endereço de email -->
+        <a href="mailto:hello@freshflow.ai">hello@freshflow.ai</a>
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+
+      <!-- EDITÁVEL: logo branco no footer -->
+      <img
+        class="footer-logo"
+        src="assets/freshflow_logo-white.png"
+        alt="Freshflow"
+      />
+
+      <nav class="footer-links">
+        <a href="https://freshflow.ai" target="_blank" rel="noopener">freshflow.ai</a>
+        <!-- EDITÁVEL: LinkedIn URL -->
+        <a href="https://www.linkedin.com/company/freshflow-ai" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+
+      <!-- EDITÁVEL: texto legal -->
+      <p class="footer-copy">
+        © 2025 Freshflow GmbH · <a href="https://freshflow.ai/impressum" style="color:inherit;text-decoration:underline;text-underline-offset:3px;" target="_blank">Impressum</a> · <a href="https://freshflow.ai/datenschutz" style="color:inherit;text-decoration:underline;text-underline-offset:3px;" target="_blank">Datenschutz</a>
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
