@@ -51,8 +51,12 @@
     }
 
     .section-confirm .inner {
-      max-width: 960px;
+      max-width: 560px;
       margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .confirm-check {
@@ -300,13 +304,12 @@
     <!-- Direita: Calendly -->
     <div class="col-calendly">
 
-      <!-- EDITÁVEL: widget Calendly — substituir data-url se o link mudar -->
+      <!-- EDITÁVEL: HubSpot Meetings embed — substituir data-src se o link mudar -->
       <div
-        class="calendly-inline-widget"
-        data-url="https://get.freshflow.ai/meetings/andrey-gromov/product-demo-de"
-        style="min-width:320px;min-height:700px;"
+        class="meetings-iframe-container"
+        data-src="https://get.freshflow.ai/meetings/andrey-gromov/product-demo-de?embed=true"
       ></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
 
       <!-- EDITÁVEL: fallback email -->
       <p class="calendly-fallback">
