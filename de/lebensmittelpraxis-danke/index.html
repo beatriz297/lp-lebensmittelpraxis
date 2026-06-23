@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vielen Dank – Freshflow</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --dark-green: #2D4739;
+      --lime: #C5D82D;
+      --cream: #FBFAF6;
+      --off-white: #F7FAF5;
+      --text-dark: #1A2B22;
+      --text-muted: #6B7E74;
+      --border-cream: rgba(24,24,27,0.10);
+      --font-heading: 'Montserrat', Arial, sans-serif;
+      --font-body: 'Inter', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+    img { display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
+    .topbar {
+      background: var(--dark-green);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* EDITÁVEL: logo branco */
+    .topbar-logo { height: 28px; width: auto; }
+
+    /* ============================================================
+       SEÇÃO 1 — VIELEN DANK (dark green, full width)
+       ============================================================ */
+    .section-confirm {
+      background: var(--dark-green);
+      padding: 72px 20px 80px;
+    }
+
+    .section-confirm .inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .confirm-check {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .confirm-check svg { width: 18px; height: 18px; }
+
+    /* EDITÁVEL: título */
+    .confirm-h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    /* EDITÁVEL: subtítulo */
+    .confirm-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      max-width: 420px;
+    }
+
+    /* EDITÁVEL: botão bericht */
+    .btn-report {
+      display: inline-block;
+      padding: 11px 22px;
+      background-color: var(--lime);
+      color: var(--dark-green);
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 999px;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+
+    .btn-report:hover { background-color: #b5c728; }
+    .btn-report:active { transform: scale(0.98); }
+
+    /* ============================================================
+       SEÇÃO 2 — NÄCHSTER SCHRITT + CALENDLY (bege, 2 colunas)
+       ============================================================ */
+    .section-demo {
+      background: var(--cream);
+      padding: 56px 20px 48px;
+    }
+
+    .section-demo .inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    @media (min-width: 760px) {
+      .section-demo .inner {
+        grid-template-columns: 260px minmax(500px, 1fr);
+        gap: 56px;
+        align-items: start;
+      }
+    }
+
+    /* Coluna esquerda — pitch text */
+    .col-pitch {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* EDITÁVEL: label */
+    .pitch-label {
+      font-family: var(--font-heading);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+    }
+
+    /* EDITÁVEL: heading — mesmo tamanho do confirm-h1 */
+    .pitch-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      color: var(--dark-green);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .pitch-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* KPI pills */
+    .kpi-inline { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .kpi-pill {
+      display: inline-flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--border-cream);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--dark-green);
+    }
+
+    /* Coluna direita — Calendly */
+    .col-calendly {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* EDITÁVEL: widget Calendly — sem height fixo, cresce naturalmente */
+    .calendly-inline-widget {
+      width: 100%;
+      min-height: 900px;
+    }
+
+    /* EDITÁVEL: fallback email */
+    .calendly-fallback {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .calendly-fallback a {
+      color: var(--dark-green);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .footer {
+      background: var(--dark-green);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .footer-logo { height: 22px; width: auto; opacity: 0.6; }
+
+    .footer-right { display: flex; gap: 16px; font-size: 12px; color: #6B7E74; }
+    .footer-right a { color: #6B7E74; transition: color 0.2s; }
+    .footer-right a:hover { color: var(--lime); }
+
+    @media (max-width: 759px) {
+      .topbar, .section-confirm, .section-demo, .footer { padding-left: 20px; padding-right: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <!-- EDITÁVEL: logo branco -->
+    <img class="topbar-logo" src="../../assets/freshflow_logo-white.png" alt="Freshflow" />
+  </header>
+
+  <!-- SEÇÃO 1 — VIELEN DANK -->
+  <section class="section-confirm">
+  <div class="inner">
+
+    <div class="confirm-check" aria-hidden="true">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 10L8 14L16 6" stroke="#2D4739" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- EDITÁVEL: título -->
+    <h1 class="confirm-h1">Vielen Dank!<br>Ihr Bericht ist bereit.</h1>
+
+    <!-- EDITÁVEL: subtítulo -->
+    <p class="confirm-sub">
+      Wir haben Ihnen den Zugang zur Lebensmittel-Praxis-Analyse per E-Mail geschickt. Sie können ihn auch direkt hier abrufen:
+    </p>
+
+    <!-- EDITÁVEL: URL do artigo LP -->
+    <a
+      class="btn-report"
+      href="https://lebensmittelpraxis.de/sortiment/48550-obst-und-gemuese-zeitfresser-disposition-wie-ki-den-bestellprozess-verkuerzt-und-abschriften-um-30-prozent-senkt.html"
+      target="_blank"
+      rel="noopener"
+    >
+      Bericht jetzt lesen →
+    </a>
+
+  </div>
+  </section>
+
+  <!-- SEÇÃO 2 — NÄCHSTER SCHRITT + CALENDLY -->
+  <section class="section-demo">
+  <div class="inner">
+
+    <!-- Esquerda: pitch -->
+    <div class="col-pitch">
+
+      <p class="pitch-label">Nächster Schritt</p>
+
+      <!-- EDITÁVEL: heading -->
+      <h2 class="pitch-h2">Möchten Sie sehen, wie Freshflow auf Ihrem Markt aussieht?</h2>
+
+      <!-- EDITÁVEL: texto -->
+      <p class="pitch-text">
+        In 30 Minuten zeigen wir Ihnen, wie unsere KI speziell für Ihre PLU-Codes, Ihre Lieferanten und Ihr lokales Wetter die optimale Bestellung erstellt.
+      </p>
+
+      <!-- EDITÁVEL: info pills da demo -->
+      <div class="kpi-inline">
+        <span class="kpi-pill">⏱ 30 Minuten</span>
+        <span class="kpi-pill">📅 Erste Ergebnisse in 6–8 Wochen</span>
+        <span class="kpi-pill">🔧 Keine IT-Änderungen nötig</span>
+        <span class="kpi-pill">🌍 Live in ganz Europa</span>
+      </div>
+
+    </div>
+
+    <!-- Direita: Calendly -->
+    <div class="col-calendly">
+
+      <!-- EDITÁVEL: HubSpot Meetings embed — substituir data-src se o link mudar -->
+      <div
+        class="meetings-iframe-container"
+        data-src="https://get.freshflow.ai/meetings/andrey-gromov/product-demo-de?embed=true"
+      ></div>
+      <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+
+      <!-- EDITÁVEL: fallback email -->
+      <p class="calendly-fallback">
+        Lieber per E-Mail? <a href="mailto:hello@freshflow.ai">hello@freshflow.ai</a>
+      </p>
+
+    </div>
+
+  </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <!-- EDITÁVEL: logo branco -->
+    <img class="footer-logo" src="../../assets/freshflow_logo-white.png" alt="Freshflow" />
+    <div class="footer-right">
+      <a href="https://freshflow.ai/impressum" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://freshflow.ai/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+      <span>© 2025 Freshflow GmbH</span>
+    </div>
+  </footer>
+
+</body>
+</html>
