@@ -47,7 +47,12 @@
        ============================================================ */
     .section-confirm {
       background: var(--dark-green);
-      padding: 48px 40px 56px 80px;
+      padding: 48px 20px 56px;
+    }
+
+    .section-confirm .inner {
+      max-width: 960px;
+      margin: 0 auto;
     }
 
     .confirm-check {
@@ -104,15 +109,20 @@
        ============================================================ */
     .section-demo {
       background: var(--cream);
-      padding: 56px 40px 48px 80px;
+      padding: 56px 20px 48px;
+    }
+
+    .section-demo .inner {
+      max-width: 960px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
     }
 
     @media (min-width: 760px) {
-      .section-demo {
-        grid-template-columns: 320px 560px;
+      .section-demo .inner {
+        grid-template-columns: 280px 1fr;
         gap: 56px;
         align-items: start;
       }
@@ -176,10 +186,10 @@
       flex-direction: column;
     }
 
-    /* EDITÁVEL: widget Calendly */
+    /* EDITÁVEL: widget Calendly — sem height fixo, cresce naturalmente */
     .calendly-inline-widget {
       width: 100%;
-      height: 700px;
+      min-height: 900px;
     }
 
     /* EDITÁVEL: fallback email */
@@ -232,6 +242,7 @@
 
   <!-- SEÇÃO 1 — VIELEN DANK -->
   <section class="section-confirm">
+  <div class="inner">
 
     <div class="confirm-check" aria-hidden="true">
       <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -257,10 +268,12 @@
       Bericht jetzt lesen →
     </a>
 
+  </div>
   </section>
 
   <!-- SEÇÃO 2 — NÄCHSTER SCHRITT + CALENDLY -->
   <section class="section-demo">
+  <div class="inner">
 
     <!-- Esquerda: pitch -->
     <div class="col-pitch">
@@ -302,6 +315,7 @@
 
     </div>
 
+  </div>
   </section>
 
   <!-- FOOTER -->
