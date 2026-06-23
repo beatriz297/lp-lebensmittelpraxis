@@ -51,7 +51,7 @@
     }
 
     /* EDITÁVEL: logo verde */
-    .topbar-logo { height: 30px; width: auto; }
+    .topbar-logo { height: 30px; width: auto; object-fit: contain; }
 
     /* ============================================================
        MAIN — 2 colunas no desktop
@@ -64,7 +64,8 @@
 
     @media (min-width: 860px) {
       .main {
-        grid-template-columns: 420px 1fr;
+        grid-template-columns: 400px minmax(0, 520px);
+        justify-content: center;
       }
     }
 
@@ -116,7 +117,7 @@
     /* EDITÁVEL: subtítulo */
     .confirm-sub {
       font-size: 14px;
-      color: #C8DCC8;
+      color: rgba(255,255,255,0.75);
       line-height: 1.7;
       margin-bottom: 28px;
     }
@@ -146,43 +147,49 @@
       margin-bottom: 28px;
     }
 
-    /* EDITÁVEL: H3 demo pitch */
+    /* EDITÁVEL: bloco pitch da demo — mais chamativo */
+    .pitch-block {
+      background: rgba(197,216,45,0.10);
+      border: 1px solid rgba(197,216,45,0.22);
+      border-radius: 12px;
+      padding: 20px 22px;
+    }
+
     .pitch-h3 {
       font-family: var(--font-heading);
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 700;
-      color: rgba(255,255,255,0.5);
+      color: var(--lime);
       text-transform: uppercase;
-      letter-spacing: 0.10em;
-      margin-bottom: 10px;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
     }
 
     .pitch-text {
       font-size: 13px;
-      color: #A4BCA4;
-      line-height: 1.7;
-      margin-bottom: 20px;
+      color: rgba(255,255,255,0.80);
+      line-height: 1.65;
+      margin-bottom: 16px;
     }
 
-    /* KPI pills inline */
+    /* KPI pills inline — clarinhos */
     .kpi-inline {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .kpi-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background-color: rgba(197,216,45,0.12);
-      border: 1px solid rgba(197,216,45,0.25);
+      background-color: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 999px;
-      padding: 5px 14px;
+      padding: 4px 12px;
       font-family: var(--font-heading);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
-      color: var(--lime);
+      color: rgba(255,255,255,0.90);
     }
 
     /* ---- Coluna direita: Calendly ---- */
@@ -318,16 +325,17 @@
       <div class="col-divider"></div>
 
       <!-- EDITÁVEL: pitch da demo -->
-      <p class="pitch-h3">Nächster Schritt</p>
-      <p class="pitch-text">
-        In 30 Minuten zeigen wir Ihnen, wie unsere KI speziell für Ihre PLU-Codes, Ihre Lieferanten und Ihr lokales Wetter die optimale Bestellung erstellt.
-      </p>
-
-      <!-- EDITÁVEL: KPI pills -->
-      <div class="kpi-inline">
-        <span class="kpi-pill">−30% Abschriften</span>
-        <span class="kpi-pill">+3% Umsatz</span>
-        <span class="kpi-pill">93% Akzeptanz</span>
+      <div class="pitch-block">
+        <p class="pitch-h3">Nächster Schritt</p>
+        <p class="pitch-text">
+          In 30 Minuten zeigen wir Ihnen, wie unsere KI speziell für Ihre PLU-Codes, Ihre Lieferanten und Ihr lokales Wetter die optimale Bestellung erstellt.
+        </p>
+        <!-- EDITÁVEL: KPI pills -->
+        <div class="kpi-inline">
+          <span class="kpi-pill">−30% Abschriften</span>
+          <span class="kpi-pill">+3% Umsatz</span>
+          <span class="kpi-pill">93% Akzeptanz</span>
+        </div>
       </div>
 
     </div>
