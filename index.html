@@ -287,39 +287,28 @@
       line-height: 1.65;
     }
 
-    /* Label com linha a cortar — "In über 400 Märkten europaweit" */
-    .logo-bar-label {
+    /* Logo bar */
+    .logo-bar-wrap {
       position: relative;
-      text-align: center;
+      padding: 32px 40px 28px;
+      border: 1.5px solid var(--border-cream);
+      border-radius: 16px;
+      background: transparent;
+    }
+
+    .logo-bar-label {
+      position: absolute;
+      top: -0.65em;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      background: var(--cream);
+      padding: 0 16px;
       font-size: 11px;
       font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.10em;
-      margin-bottom: 32px;
-    }
-
-    .logo-bar-label::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--border-cream);
-    }
-
-    .logo-bar-label span {
-      position: relative;
-      background: var(--cream);
-      padding: 0 16px;
-    }
-
-    /* Logo bar */
-    .logo-bar-wrap {
-      overflow: hidden;
-      padding-top: 48px;
-      padding-bottom: 48px;
     }
 
     .logo-bar {
@@ -328,10 +317,6 @@
       align-items: center;
       justify-content: center;
       gap: 36px;
-      border: 1.5px solid var(--border-cream);
-      border-radius: 16px;
-      background: #fff;
-      padding: 20px 36px;
     }
 
     /* EDITÁVEL: cada item do logo bar — substituir conteúdo por <img> com o logo real. */
@@ -749,7 +734,7 @@
       <!-- Logo bar -->
       <div class="logo-bar-wrap">
         <!-- EDITÁVEL: label centralizado -->
-        <p class="logo-bar-label"><span>In über 400 Märkten europaweit</span></p>
+        <p class="logo-bar-label">In über 400 Märkten europaweit</p>
         <!-- EDITÁVEL: substituir cada span por <img> com o logo real do cliente.
              Ex: <img src="assets/customer_logos/edeka.png" alt="EDEKA" style="height:40px;width:auto;opacity:0.50;" /> -->
         <div class="logo-bar">
