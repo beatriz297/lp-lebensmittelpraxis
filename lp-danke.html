@@ -11,22 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ============================================================
-       DESIGN TOKENS — mesmos da página 1
-       ============================================================ */
     :root {
       --dark-green: #2D4739;
       --lime: #C5D82D;
-      --off-white: #F7FAF5;
       --cream: #FBFAF6;
-      --cream-2: #F2EBD6;
+      --off-white: #F7FAF5;
       --text-dark: #1A2B22;
       --text-muted: #6B7E74;
       --border-cream: rgba(24,24,27,0.10);
       --font-heading: 'Montserrat', Arial, sans-serif;
       --font-body: 'Inter', Arial, sans-serif;
-      --max-w: 860px;
-      --section-py: 80px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,187 +32,200 @@
       color: var(--text-dark);
       font-size: 16px;
       line-height: 1.6;
+      min-height: 100vh;
     }
 
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
-    .container {
-      width: 100%;
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
     /* ============================================================
-       NAVBAR — logo verde, fundo branco, sem menu
+       NAVBAR
        ============================================================ */
     .topbar {
-      background-color: #fff;
+      background: #fff;
       border-bottom: 1px solid var(--border-cream);
-      padding: 18px 24px;
-    }
-
-    .topbar .container {
+      padding: 16px 32px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* EDITÁVEL: substituir src pelo caminho do logo verde */
-    .topbar-logo {
-      height: 34px;
-      width: auto;
-    }
+    /* EDITÁVEL: logo verde */
+    .topbar-logo { height: 30px; width: auto; }
 
     /* ============================================================
-       SEÇÃO 1 — CONFIRMAÇÃO (dark green)
+       MAIN — 2 colunas no desktop
        ============================================================ */
-    .section-confirm {
+    .main {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: calc(100vh - 63px);
+    }
+
+    @media (min-width: 860px) {
+      .main {
+        grid-template-columns: 420px 1fr;
+      }
+    }
+
+    /* ---- Coluna esquerda ---- */
+    .col-left {
       background-color: var(--dark-green);
       color: #fff;
-      padding: 72px 0 80px;
-      text-align: center;
+      padding: 56px 48px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
     }
 
-    /* EDITÁVEL: logo branco no topo da confirmação */
+    /* EDITÁVEL: logo branco pequeno no topo da col esquerda */
     .confirm-logo {
-      height: 28px;
+      height: 22px;
       width: auto;
-      margin: 0 auto 40px;
-      opacity: 0.75;
+      opacity: 0.55;
+      margin-bottom: 36px;
     }
 
-    /* EDITÁVEL: título principal em lime */
+    /* EDITÁVEL: checkmark de confirmação */
+    .confirm-check {
+      width: 44px;
+      height: 44px;
+      background-color: rgba(197,216,45,0.18);
+      border: 1.5px solid rgba(197,216,45,0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .confirm-check svg { width: 20px; height: 20px; }
+
+    /* EDITÁVEL: título */
     .confirm-h1 {
       font-family: var(--font-heading);
-      font-size: clamp(24px, 4vw, 40px);
+      font-size: clamp(20px, 2.5vw, 28px);
       font-weight: 800;
       color: var(--lime);
-      line-height: 1.2;
-      margin-bottom: 20px;
+      line-height: 1.25;
       letter-spacing: -0.02em;
+      margin-bottom: 14px;
     }
 
-    .confirm-subtitle {
-      font-size: clamp(15px, 2vw, 17px);
+    /* EDITÁVEL: subtítulo */
+    .confirm-sub {
+      font-size: 14px;
       color: #C8DCC8;
       line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 36px;
+      margin-bottom: 28px;
     }
 
-    /* EDITÁVEL: botão CTA lime */
+    /* EDITÁVEL: botão bericht */
     .btn-report {
       display: inline-block;
-      padding: 16px 36px;
+      align-self: flex-start;
+      padding: 12px 24px;
       background-color: var(--lime);
       color: var(--dark-green);
       font-family: var(--font-heading);
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
       border-radius: 999px;
       transition: background-color 0.2s, transform 0.1s;
+      margin-bottom: 36px;
     }
 
     .btn-report:hover { background-color: #b5c728; }
     .btn-report:active { transform: scale(0.98); }
 
-    /* Wave divider — cream fill, seamless transition */
-    .confirm-wave {
-      display: block;
-      width: 100%;
-      margin-bottom: -2px;
+    /* Divisor */
+    .col-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.10);
+      margin-bottom: 28px;
     }
 
-    /* ============================================================
-       SEÇÃO 2 — PITCH DA DEMO (fundo branco)
-       ============================================================ */
-    .section-pitch {
-      background-color: #fff;
-      padding: var(--section-py) 0 64px;
-      text-align: center;
-      border-bottom: 1px solid var(--border-cream);
-    }
-
-    .pitch-h2 {
+    /* EDITÁVEL: H3 demo pitch */
+    .pitch-h3 {
       font-family: var(--font-heading);
-      font-size: clamp(20px, 3vw, 30px);
-      font-weight: 800;
-      color: var(--dark-green);
-      line-height: 1.25;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      margin-bottom: 10px;
     }
 
     .pitch-text {
-      font-size: clamp(14px, 1.8vw, 16px);
-      color: var(--text-muted);
-      line-height: 1.75;
-      max-width: 640px;
-      margin: 0 auto 36px;
+      font-size: 13px;
+      color: #A4BCA4;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
 
-    /* KPI bar compacta — inline pills */
+    /* KPI pills inline */
     .kpi-inline {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 24px;
+      gap: 8px;
     }
 
     .kpi-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       background-color: rgba(197,216,45,0.12);
-      border: 1px solid rgba(197,216,45,0.30);
+      border: 1px solid rgba(197,216,45,0.25);
       border-radius: 999px;
-      padding: 8px 20px;
+      padding: 5px 14px;
       font-family: var(--font-heading);
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--dark-green);
+      color: var(--lime);
     }
 
-    .kpi-pill-num {
-      color: var(--dark-green);
-      font-size: 16px;
-    }
-
-    /* ============================================================
-       SEÇÃO 3 — CALENDLY EMBED (off-white)
-       ============================================================ */
-    .section-calendly {
+    /* ---- Coluna direita: Calendly ---- */
+    .col-right {
       background-color: var(--off-white);
-      padding: var(--section-py) 0;
+      display: flex;
+      flex-direction: column;
     }
 
-    .calendly-h3 {
+    .col-right-header {
+      padding: 32px 40px 0;
+    }
+
+    .calendly-label {
       font-family: var(--font-heading);
-      font-size: clamp(17px, 2.5vw, 22px);
+      font-size: 12px;
       font-weight: 700;
-      color: var(--dark-green);
-      margin-bottom: 32px;
-      text-align: center;
-    }
-
-    /* EDITÁVEL: wrapper do widget Calendly */
-    .calendly-wrap {
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(24,24,27,0.07);
-      background: #fff;
-    }
-
-    .calendly-fallback {
-      text-align: center;
-      margin-top: 24px;
-      font-size: 13px;
       color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+      margin-bottom: 16px;
     }
 
-    /* EDITÁVEL: link de email fallback */
+    /* EDITÁVEL: wrapper do Calendly — ocupa o espaço restante */
+    .calendly-wrap {
+      flex: 1;
+      min-height: 600px;
+    }
+
+    .calendly-inline-widget {
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+    }
+
+    /* EDITÁVEL: fallback email */
+    .calendly-fallback {
+      padding: 16px 40px 24px;
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
     .calendly-fallback a {
       color: var(--dark-green);
       font-weight: 600;
@@ -227,85 +234,78 @@
     }
 
     /* ============================================================
-       FOOTER — igual à página 1
+       FOOTER — minimal
        ============================================================ */
     .footer {
       background-color: var(--dark-green);
-      color: #A4BCA4;
-      padding: 40px 0 32px;
-      text-align: center;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     /* EDITÁVEL: logo branco no footer */
-    .footer-logo {
-      height: 32px;
-      width: auto;
-      margin: 0 auto 20px;
-    }
+    .footer-logo { height: 24px; width: auto; opacity: 0.7; }
 
-    .footer-links {
+    .footer-right {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px 20px;
-      margin-bottom: 16px;
-      font-size: 14px;
+      gap: 16px;
+      font-size: 12px;
+      color: #6B7E74;
     }
 
-    .footer-links a {
-      color: #A4BCA4;
+    .footer-right a {
+      color: #6B7E74;
       transition: color 0.2s;
     }
 
-    .footer-links a:hover { color: var(--lime); }
+    .footer-right a:hover { color: var(--lime); }
 
-    /* EDITÁVEL: texto de copyright */
-    .footer-copy {
-      font-size: 12px;
-      color: #6B7E74;
+    /* Mobile: col esquerda não ocupa tela inteira */
+    @media (max-width: 859px) {
+      .col-left { padding: 40px 24px 36px; }
+      .col-right-header { padding: 28px 24px 0; }
+      .calendly-fallback { padding: 12px 24px 20px; }
+      .footer { padding: 16px 24px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ============================================================
-       NAVBAR — logo verde, sem menu
-       ============================================================ -->
+  <!-- NAVBAR -->
   <header class="topbar">
-    <div class="container">
-      <!-- EDITÁVEL: caminho do logo verde -->
-      <img
-        class="topbar-logo"
-        src="assets/freshflow_logo.png"
-        alt="Freshflow"
-      />
-    </div>
+    <!-- EDITÁVEL: logo verde -->
+    <img class="topbar-logo" src="assets/freshflow_logo.png" alt="Freshflow" />
   </header>
 
-  <!-- ============================================================
-       SEÇÃO 1 — CONFIRMAÇÃO
-       ============================================================ -->
-  <section class="section-confirm">
-    <div class="container">
+  <!-- MAIN GRID -->
+  <main class="main">
 
-      <!-- EDITÁVEL: logo branco — mesma imagem do nav da página 1 -->
-      <img
-        class="confirm-logo"
-        src="assets/freshflow_logo-white.png"
-        alt="Freshflow"
-      />
+    <!-- Coluna esquerda — confirmação + pitch -->
+    <div class="col-left">
 
-      <!-- EDITÁVEL: título em lime -->
-      <h1 class="confirm-h1">Vielen Dank!<br>Ihr Zugang zum Bericht ist bereit.</h1>
+      <!-- EDITÁVEL: logo branco pequeno -->
+      <img class="confirm-logo" src="assets/freshflow_logo-white.png" alt="Freshflow" />
+
+      <!-- Check icon -->
+      <div class="confirm-check" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 10L8 14L16 6" stroke="#C5D82D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- EDITÁVEL: título -->
+      <h1 class="confirm-h1">Vielen Dank!<br>Ihr Bericht ist bereit.</h1>
 
       <!-- EDITÁVEL: subtítulo -->
-      <p class="confirm-subtitle">
-        Wir haben Ihnen den Zugang zur Analyse der Lebensmittel Praxis per E-Mail geschickt.
-        Sie können den Bericht auch direkt hier abrufen:
+      <p class="confirm-sub">
+        Wir haben Ihnen den Zugang zur Lebensmittel-Praxis-Analyse per E-Mail geschickt. Sie können ihn auch direkt hier abrufen:
       </p>
 
-      <!-- EDITÁVEL: URL do artigo da LP -->
+      <!-- EDITÁVEL: URL do artigo LP -->
       <a
         class="btn-report"
         href="https://lebensmittelpraxis.de/sortiment/48550-obst-und-gemuese-zeitfresser-disposition-wie-ki-den-bestellprozess-verkuerzt-und-abschriften-um-30-prozent-senkt.html"
@@ -315,93 +315,58 @@
         Bericht jetzt lesen →
       </a>
 
-    </div>
+      <div class="col-divider"></div>
 
-    <!-- Wave — fill = #fff (branco, mesma cor da seção seguinte) -->
-    <svg class="confirm-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#ffffff"/>
-    </svg>
-  </section>
-
-  <!-- ============================================================
-       SEÇÃO 2 — PITCH DA DEMO
-       ============================================================ -->
-  <section class="section-pitch">
-    <div class="container">
-
-      <!-- EDITÁVEL: título -->
-      <h2 class="pitch-h2">Möchten Sie sehen, wie diese Ergebnisse<br>in Ihrem Markt aussehen?</h2>
-
-      <!-- EDITÁVEL: texto -->
+      <!-- EDITÁVEL: pitch da demo -->
+      <p class="pitch-h3">Nächster Schritt</p>
       <p class="pitch-text">
-        Der Bericht zeigt, was möglich ist. In einer 30-minütigen Demo zeigen wir Ihnen,
-        wie unsere KI speziell für Ihre PLU-Codes, Ihre Lieferanten und Ihr lokales Wetter
-        die optimale Bestellung erstellt.
+        In 30 Minuten zeigen wir Ihnen, wie unsere KI speziell für Ihre PLU-Codes, Ihre Lieferanten und Ihr lokales Wetter die optimale Bestellung erstellt.
       </p>
 
-      <!-- EDITÁVEL: KPI bar inline -->
+      <!-- EDITÁVEL: KPI pills -->
       <div class="kpi-inline">
-        <span class="kpi-pill"><span class="kpi-pill-num">−30%</span> Abschriften</span>
-        <span class="kpi-pill"><span class="kpi-pill-num">+3%</span> Umsatz</span>
-        <span class="kpi-pill"><span class="kpi-pill-num">93%</span> Akzeptanzrate</span>
+        <span class="kpi-pill">−30% Abschriften</span>
+        <span class="kpi-pill">+3% Umsatz</span>
+        <span class="kpi-pill">93% Akzeptanz</span>
       </div>
 
     </div>
-  </section>
 
-  <!-- ============================================================
-       SEÇÃO 3 — CALENDLY EMBED
-       ============================================================ -->
-  <section class="section-calendly">
-    <div class="container">
+    <!-- Coluna direita — Calendly -->
+    <div class="col-right">
 
-      <!-- EDITÁVEL: título da seção -->
-      <h3 class="calendly-h3">Termin direkt buchen:</h3>
+      <div class="col-right-header">
+        <!-- EDITÁVEL: label acima do Calendly -->
+        <p class="calendly-label">Termin direkt buchen</p>
+      </div>
 
       <!-- EDITÁVEL: widget Calendly — substituir data-url se o link mudar -->
       <div class="calendly-wrap">
         <div
           class="calendly-inline-widget"
           data-url="https://get.freshflow.ai/meetings/andrey-gromov/product-demo-de"
-          style="min-width:320px;height:700px;"
+          style="min-width:320px;height:100%;"
         ></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </div>
 
-      <!-- Fallback -->
+      <!-- EDITÁVEL: fallback -->
       <p class="calendly-fallback">
-        Lieber per E-Mail? Schreib uns:
-        <!-- EDITÁVEL: endereço de email -->
-        <a href="mailto:hello@freshflow.ai">hello@freshflow.ai</a>
+        Lieber per E-Mail? <a href="mailto:hello@freshflow.ai">hello@freshflow.ai</a>
       </p>
 
     </div>
-  </section>
 
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
+  </main>
+
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-
-      <!-- EDITÁVEL: logo branco no footer -->
-      <img
-        class="footer-logo"
-        src="assets/freshflow_logo-white.png"
-        alt="Freshflow"
-      />
-
-      <nav class="footer-links">
-        <a href="https://freshflow.ai" target="_blank" rel="noopener">freshflow.ai</a>
-        <!-- EDITÁVEL: LinkedIn URL -->
-        <a href="https://www.linkedin.com/company/freshflow-ai" target="_blank" rel="noopener">LinkedIn</a>
-      </nav>
-
-      <!-- EDITÁVEL: texto legal -->
-      <p class="footer-copy">
-        © 2025 Freshflow GmbH · <a href="https://freshflow.ai/impressum" style="color:inherit;text-decoration:underline;text-underline-offset:3px;" target="_blank">Impressum</a> · <a href="https://freshflow.ai/datenschutz" style="color:inherit;text-decoration:underline;text-underline-offset:3px;" target="_blank">Datenschutz</a>
-      </p>
-
+    <!-- EDITÁVEL: logo branco -->
+    <img class="footer-logo" src="assets/freshflow_logo-white.png" alt="Freshflow" />
+    <div class="footer-right">
+      <a href="https://freshflow.ai/impressum" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://freshflow.ai/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+      <span>© 2025 Freshflow GmbH</span>
     </div>
   </footer>
 
