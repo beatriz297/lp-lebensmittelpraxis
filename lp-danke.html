@@ -25,15 +25,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background-color: var(--dark-green);
-      color: var(--text-dark);
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
+    body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
     img { display: block; }
     a { color: inherit; text-decoration: none; }
 
@@ -47,36 +39,15 @@
       align-items: center;
     }
 
-    /* EDITÁVEL: logo branco no nav */
-    .topbar-logo {
-      height: 28px;
-      width: auto;
-      display: block;
-    }
+    /* EDITÁVEL: logo branco */
+    .topbar-logo { height: 28px; width: auto; }
 
     /* ============================================================
-       TOP ROW — vielen dank + pitch lado a lado
+       SEÇÃO 1 — VIELEN DANK (dark green, full width)
        ============================================================ */
-    .top-row {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 0 40px 32px;
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    @media (min-width: 700px) {
-      .top-row {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-      }
-    }
-
-    /* Coluna confirmação */
-    .col-confirm {
-      padding: 36px 32px;
+    .section-confirm {
+      background: var(--dark-green);
+      padding: 48px 40px 56px;
     }
 
     .confirm-check {
@@ -88,7 +59,6 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      flex-shrink: 0;
     }
 
     .confirm-check svg { width: 18px; height: 18px; }
@@ -110,6 +80,7 @@
       color: rgba(255,255,255,0.65);
       line-height: 1.7;
       margin-bottom: 24px;
+      max-width: 420px;
     }
 
     /* EDITÁVEL: botão bericht */
@@ -128,43 +99,59 @@
     .btn-report:hover { background-color: #b5c728; }
     .btn-report:active { transform: scale(0.98); }
 
-    /* Card pitch */
-    .col-pitch {
-      background: #fff;
-      border-radius: 14px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    /* ============================================================
+       SEÇÃO 2 — NÄCHSTER SCHRITT + CALENDLY (bege, 2 colunas)
+       ============================================================ */
+    .section-demo {
+      background: var(--cream);
+      padding: 56px 40px 48px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
 
-    /* EDITÁVEL: label nächster schritt */
+    @media (min-width: 760px) {
+      .section-demo {
+        grid-template-columns: 340px 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+    }
+
+    /* Coluna esquerda — pitch text */
+    .col-pitch {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* EDITÁVEL: label */
     .pitch-label {
       font-family: var(--font-heading);
       font-size: 10px;
       font-weight: 700;
-      color: var(--dark-green);
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      margin-bottom: 10px;
-      opacity: 0.5;
+      margin-bottom: 14px;
     }
 
+    /* EDITÁVEL: heading — mesmo tamanho do confirm-h1 */
     .pitch-h2 {
       font-family: var(--font-heading);
-      font-size: clamp(15px, 2vw, 18px);
+      font-size: clamp(22px, 3vw, 32px);
       font-weight: 800;
       color: var(--dark-green);
-      line-height: 1.3;
-      letter-spacing: -0.01em;
-      margin-bottom: 10px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
     }
 
     .pitch-text {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
 
     /* KPI pills */
@@ -173,7 +160,7 @@
     .kpi-pill {
       display: inline-flex;
       align-items: center;
-      background-color: var(--cream);
+      background: #fff;
       border: 1px solid var(--border-cream);
       border-radius: 999px;
       padding: 4px 12px;
@@ -183,38 +170,23 @@
       color: var(--dark-green);
     }
 
-    /* ============================================================
-       CALENDLY — full width
-       ============================================================ */
-    .calendly-section {
-      background: var(--off-white);
-      width: 100%;
+    /* Coluna direita — Calendly */
+    .col-calendly {
+      display: flex;
+      flex-direction: column;
     }
 
-    .calendly-header {
-      padding: 28px 40px 0;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .calendly-label {
-      font-family: var(--font-heading);
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.10em;
-      margin-bottom: 12px;
-    }
-
-    /* EDITÁVEL: widget Calendly */
+    /* EDITÁVEL: widget Calendly — altura fixa para não cortar */
     .calendly-inline-widget {
       width: 100%;
-      min-height: 660px;
+      min-height: 700px;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
+    /* EDITÁVEL: fallback email */
     .calendly-fallback {
-      padding: 12px 40px 20px;
+      margin-top: 12px;
       font-size: 12px;
       color: var(--text-muted);
       text-align: center;
@@ -231,7 +203,7 @@
        FOOTER
        ============================================================ */
     .footer {
-      background-color: var(--dark-green);
+      background: var(--dark-green);
       padding: 16px 40px;
       display: flex;
       align-items: center;
@@ -240,26 +212,14 @@
       gap: 8px;
     }
 
-    /* EDITÁVEL: logo branco no footer */
-    .footer-logo { height: 22px; width: auto; opacity: 0.6; display: block; }
+    .footer-logo { height: 22px; width: auto; opacity: 0.6; }
 
-    .footer-right {
-      display: flex;
-      gap: 16px;
-      font-size: 12px;
-      color: #6B7E74;
-    }
-
+    .footer-right { display: flex; gap: 16px; font-size: 12px; color: #6B7E74; }
     .footer-right a { color: #6B7E74; transition: color 0.2s; }
     .footer-right a:hover { color: var(--lime); }
 
-    @media (max-width: 699px) {
-      .topbar { padding: 16px 20px; }
-      .top-row { padding: 0 20px 24px; }
-      .col-confirm { padding: 24px 0; }
-      .calendly-header { padding: 20px 20px 0; }
-      .calendly-fallback { padding: 12px 20px 16px; }
-      .footer { padding: 14px 20px; }
+    @media (max-width: 759px) {
+      .topbar, .section-confirm, .section-demo, .footer { padding-left: 20px; padding-right: 20px; }
     }
   </style>
 </head>
@@ -272,44 +232,44 @@
     <img class="topbar-logo" src="assets/freshflow_logo-white.png" alt="Freshflow" />
   </header>
 
-  <!-- TOP ROW: confirmação + pitch -->
-  <div class="top-row">
+  <!-- SEÇÃO 1 — VIELEN DANK -->
+  <section class="section-confirm">
 
-    <!-- Coluna esquerda: confirmação -->
-    <div class="col-confirm">
-
-      <div class="confirm-check" aria-hidden="true">
-        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 10L8 14L16 6" stroke="#2D4739" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-
-      <!-- EDITÁVEL: título -->
-      <h1 class="confirm-h1">Vielen Dank!<br>Ihr Bericht ist bereit.</h1>
-
-      <!-- EDITÁVEL: subtítulo -->
-      <p class="confirm-sub">
-        Wir haben Ihnen den Zugang zur Lebensmittel-Praxis-Analyse per E-Mail geschickt. Sie können ihn auch direkt hier abrufen:
-      </p>
-
-      <!-- EDITÁVEL: URL do artigo LP -->
-      <a
-        class="btn-report"
-        href="https://lebensmittelpraxis.de/sortiment/48550-obst-und-gemuese-zeitfresser-disposition-wie-ki-den-bestellprozess-verkuerzt-und-abschriften-um-30-prozent-senkt.html"
-        target="_blank"
-        rel="noopener"
-      >
-        Bericht jetzt lesen →
-      </a>
-
+    <div class="confirm-check" aria-hidden="true">
+      <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 10L8 14L16 6" stroke="#2D4739" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
 
-    <!-- Coluna direita: pitch card -->
+    <!-- EDITÁVEL: título -->
+    <h1 class="confirm-h1">Vielen Dank!<br>Ihr Bericht ist bereit.</h1>
+
+    <!-- EDITÁVEL: subtítulo -->
+    <p class="confirm-sub">
+      Wir haben Ihnen den Zugang zur Lebensmittel-Praxis-Analyse per E-Mail geschickt. Sie können ihn auch direkt hier abrufen:
+    </p>
+
+    <!-- EDITÁVEL: URL do artigo LP -->
+    <a
+      class="btn-report"
+      href="https://lebensmittelpraxis.de/sortiment/48550-obst-und-gemuese-zeitfresser-disposition-wie-ki-den-bestellprozess-verkuerzt-und-abschriften-um-30-prozent-senkt.html"
+      target="_blank"
+      rel="noopener"
+    >
+      Bericht jetzt lesen →
+    </a>
+
+  </section>
+
+  <!-- SEÇÃO 2 — NÄCHSTER SCHRITT + CALENDLY -->
+  <section class="section-demo">
+
+    <!-- Esquerda: pitch -->
     <div class="col-pitch">
 
       <p class="pitch-label">Nächster Schritt</p>
 
-      <!-- EDITÁVEL: título do pitch -->
+      <!-- EDITÁVEL: heading -->
       <h2 class="pitch-h2">Möchten Sie sehen, wie das in Ihrem Markt aussieht?</h2>
 
       <!-- EDITÁVEL: texto -->
@@ -326,29 +286,25 @@
 
     </div>
 
-  </div>
+    <!-- Direita: Calendly -->
+    <div class="col-calendly">
 
-  <!-- CALENDLY -->
-  <div class="calendly-section">
+      <!-- EDITÁVEL: widget Calendly — substituir data-url se o link mudar -->
+      <div
+        class="calendly-inline-widget"
+        data-url="https://get.freshflow.ai/meetings/andrey-gromov/product-demo-de"
+        style="min-width:320px;min-height:700px;"
+      ></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-    <div class="calendly-header">
-      <p class="calendly-label">Termin direkt buchen</p>
+      <!-- EDITÁVEL: fallback email -->
+      <p class="calendly-fallback">
+        Lieber per E-Mail? <a href="mailto:hello@freshflow.ai">hello@freshflow.ai</a>
+      </p>
+
     </div>
 
-    <!-- EDITÁVEL: widget Calendly — substituir data-url se o link mudar -->
-    <div
-      class="calendly-inline-widget"
-      data-url="https://get.freshflow.ai/meetings/andrey-gromov/product-demo-de"
-      style="min-width:320px;min-height:660px;"
-    ></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-
-    <!-- EDITÁVEL: fallback email -->
-    <p class="calendly-fallback">
-      Lieber per E-Mail? <a href="mailto:hello@freshflow.ai">hello@freshflow.ai</a>
-    </p>
-
-  </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
