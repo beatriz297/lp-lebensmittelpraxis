@@ -285,21 +285,37 @@
       line-height: 1.65;
     }
 
-    /* EDITÁVEL: label acima do logo bar */
+    /* Label com linha a cortar — "In über 400 Märkten europaweit" */
     .logo-bar-label {
+      position: relative;
+      text-align: center;
       font-size: 11px;
       font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.10em;
-      text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
-    /* Logo bar — single row, like freshflow.ai */
+    .logo-bar-label::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--border-cream);
+    }
+
+    .logo-bar-label span {
+      position: relative;
+      background: var(--cream);
+      padding: 0 16px;
+    }
+
+    /* Logo bar */
     .logo-bar-wrap {
       overflow: hidden;
-      border-top: 1px solid var(--border-cream);
       padding-top: 48px;
       padding-bottom: 48px;
     }
@@ -309,21 +325,24 @@
       flex-wrap: nowrap;
       align-items: center;
       justify-content: center;
-      gap: 48px;
+      gap: 16px;
     }
 
-    /* EDITÁVEL: cada item do logo bar — substituir conteúdo por <img> com o logo real.
-       Ex: <img src="assets/customer_logos/edeka.png" alt="EDEKA" style="height:40px;width:auto;opacity:0.50;" /> */
+    /* EDITÁVEL: cada item do logo bar — substituir conteúdo por <img> com o logo real. */
     .logo-item {
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-heading);
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 800;
-      color: rgba(24,24,27,0.28);
+      color: rgba(24,24,27,0.40);
       letter-spacing: 0.02em;
       white-space: nowrap;
+      padding: 10px 20px;
+      border: 1.5px solid var(--border-cream);
+      border-radius: 999px;
+      background: #fff;
     }
 
     /* ============================================================
@@ -728,7 +747,7 @@
       <!-- Logo bar -->
       <div class="logo-bar-wrap">
         <!-- EDITÁVEL: label centralizado -->
-        <p class="logo-bar-label">In über 400 Märkten europaweit</p>
+        <p class="logo-bar-label"><span>In über 400 Märkten europaweit</span></p>
         <!-- EDITÁVEL: substituir cada span por <img> com o logo real do cliente.
              Ex: <img src="assets/customer_logos/edeka.png" alt="EDEKA" style="height:40px;width:auto;opacity:0.50;" /> -->
         <div class="logo-bar">
